@@ -42,6 +42,45 @@ export function BaseMap({ data }: { data: MapData[] }) {
 
     mapRef.current = map;
 
+    fetch("/kutai_timur.json")
+    .then((response) => response.json())
+    .then((geojson) => {
+      // Add the GeoJSON source
+      map.addSource("kutai-timur", {
+        type: "geojson",
+        data: geojson,
+      });
+
+      map.addLayer({
+        id: "kutai-timur-fill",
+        type: "fill",
+        source: "kutai-timur",
+        paint: {
+          "fill-color": "#00BFA5",
+          "fill-opacity": 0.2,
+        },
+      });
+
+      map.addLayer({
+        id: "kutai-timur-outline",
+        type: "line",
+        source: "kutai-timur",
+        paint: {
+          "line-color": "#00796B",
+          "line-width": 2,
+        },
+      });
+
+      const bounds = new maplibregl.LngLatBounds();
+      geojson.features.forEach((feature: any) => {
+        feature.geometry.coordinates.flat(2).forEach((coord: any) => {
+          bounds.extend(coord as [number, number]);
+        });
+      });
+      map.fitBounds(bounds, { padding: 40 });
+    })
+    .catch((err) => console.error("Failed to load Kutai Timur GeoJSON:", err));
+
     data.forEach((item) => {
       const lat = parseFloat(String(item.LATITUDE));
       const long = parseFloat(String(item.LONGITUDE));
