@@ -3,6 +3,7 @@ import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import React from "react";
 import { useIsMobile } from "../hook/useMobile";
+import GeoSpatialKalimantanTimur from "../data/static-spatial.json";
 
 interface MapData {
   LATITUDE: number | string;
@@ -33,8 +34,7 @@ export function BaseMap({ data }: { data: MapData[] }) {
 
     const map = new maplibregl.Map({
       container: mapContainerRef.current,
-      style:
-        `https://api.maptiler.com/maps/streets/style.json?key=${process.env.NEXT_PUBLIC_TOKEN_MAP}`,
+      style: `https://api.maptiler.com/maps/streets/style.json?key=${process.env.NEXT_PUBLIC_TOKEN_MAP}`,
       center: [centerLong, centerLat],
       zoom: 10,
       interactive: true,
@@ -42,6 +42,83 @@ export function BaseMap({ data }: { data: MapData[] }) {
 
     mapRef.current = map;
 
+    // Event ketika map selesai load
+    map.on("load", () => {
+      // Data sudah dalam format FeatureCollection, langsung gunakan
+      // Tambahkan source untuk batas wilayah
+      map.addSource("boundary", {
+        type: "geojson",
+        data: GeoSpatialKalimantanTimur as any,
+      });
+
+      // Layer untuk fill/isian wilayah (semi-transparan)
+      map.addLayer({
+        id: "boundary-fill",
+        type: "fill",
+        source: "boundary",
+        paint: {
+          "fill-color": "#088",
+          "fill-opacity": 0.15,
+        },
+      });
+
+      // Layer untuk garis batas wilayah
+      map.addLayer({
+        id: "boundary-outline",
+        type: "line",
+        source: "boundary",
+        paint: {
+          "line-color": "#0066cc",
+          "line-width": 2,
+          "line-opacity": 0.8,
+        },
+      });
+
+      // Layer untuk label nama wilayah (kabupaten/kota)
+      map.addLayer({
+        id: "boundary-label",
+        type: "symbol",
+        source: "boundary",
+        layout: {
+          "text-field": ["get", "nm_dati2"],
+          "text-size": 12,
+          "text-font": ["Open Sans Regular"],
+        },
+        paint: {
+          "text-color": "#0066cc",
+          "text-halo-color": "#ffffff",
+          "text-halo-width": 2,
+        },
+      });
+
+      // Interaksi: ubah cursor saat hover
+      map.on("mouseenter", "boundary-fill", () => {
+        map.getCanvas().style.cursor = "pointer";
+      });
+
+      map.on("mouseleave", "boundary-fill", () => {
+        map.getCanvas().style.cursor = "";
+      });
+
+      // // Tampilkan popup saat area wilayah diklik
+      // map.on("click", "boundary-fill", (e) => {
+      //   if (e.features && e.features.length > 0) {
+      //     const properties = e.features[0].properties;
+      //     new maplibregl.Popup()
+      //       .setLngLat(e.lngLat)
+      //       .setHTML(`
+      //         <div style="padding: 20px 20px 20px 20px;">
+      //           <h3 style="margin: 20px 20px 8px 20px;">${properties?.nm_dati2 ?? "Wilayah"}</h3>
+      //           <p style="margin: 20px;"><strong>Kode Provinsi:</strong> ${properties?.kd_propinsi ?? "-"}</p>
+      //           <p style="margin: 20px 20px 20px 20px;"><strong>Kode Dati2:</strong> ${properties?.kd_dati2 ?? "-"}</p>
+      //         </div>
+      //       `)
+      //       .addTo(map);
+      //   }
+      // });
+    });
+
+    // Tambahkan markers untuk data point
     data.forEach((item) => {
       const lat = parseFloat(String(item.LATITUDE));
       const long = parseFloat(String(item.LONGITUDE));
@@ -61,13 +138,17 @@ export function BaseMap({ data }: { data: MapData[] }) {
       }
     });
 
+    // Fit bounds berdasarkan data point
     const bounds = new maplibregl.LngLatBounds();
     data.forEach((item) => {
       const lat = parseFloat(String(item.LATITUDE));
       const long = parseFloat(String(item.LONGITUDE));
       if (!isNaN(lat) && !isNaN(long)) bounds.extend([long, lat]);
     });
-    if (!bounds.isEmpty()) map.fitBounds(bounds, { padding: 50 });
+    
+    if (!bounds.isEmpty()) {
+      map.fitBounds(bounds, { padding: 50 });
+    }
 
     return () => {
       if (mapRef.current && typeof mapRef.current.remove === "function") {
