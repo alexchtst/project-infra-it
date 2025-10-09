@@ -42,16 +42,13 @@ export function BaseMap({ data }: { data: MapData[] }) {
 
     mapRef.current = map;
 
-    // Event ketika map selesai load
     map.on("load", () => {
-      // Data sudah dalam format FeatureCollection, langsung gunakan
       // Tambahkan source untuk batas wilayah
       map.addSource("boundary", {
         type: "geojson",
         data: GeoSpatialKalimantanTimur as any,
       });
 
-      // Layer untuk fill/isian wilayah (semi-transparan)
       map.addLayer({
         id: "boundary-fill",
         type: "fill",
@@ -74,7 +71,6 @@ export function BaseMap({ data }: { data: MapData[] }) {
         },
       });
 
-      // Layer untuk label nama wilayah (kabupaten/kota)
       map.addLayer({
         id: "boundary-label",
         type: "symbol",
@@ -91,7 +87,6 @@ export function BaseMap({ data }: { data: MapData[] }) {
         },
       });
 
-      // Interaksi: ubah cursor saat hover
       map.on("mouseenter", "boundary-fill", () => {
         map.getCanvas().style.cursor = "pointer";
       });
@@ -100,22 +95,21 @@ export function BaseMap({ data }: { data: MapData[] }) {
         map.getCanvas().style.cursor = "";
       });
 
-      // // Tampilkan popup saat area wilayah diklik
-      // map.on("click", "boundary-fill", (e) => {
-      //   if (e.features && e.features.length > 0) {
-      //     const properties = e.features[0].properties;
-      //     new maplibregl.Popup()
-      //       .setLngLat(e.lngLat)
-      //       .setHTML(`
-      //         <div style="padding: 20px 20px 20px 20px;">
-      //           <h3 style="margin: 20px 20px 8px 20px;">${properties?.nm_dati2 ?? "Wilayah"}</h3>
-      //           <p style="margin: 20px;"><strong>Kode Provinsi:</strong> ${properties?.kd_propinsi ?? "-"}</p>
-      //           <p style="margin: 20px 20px 20px 20px;"><strong>Kode Dati2:</strong> ${properties?.kd_dati2 ?? "-"}</p>
-      //         </div>
-      //       `)
-      //       .addTo(map);
-      //   }
-      // });
+      // Tampilkan popup saat area wilayah diklik
+      map.on("click", "boundary-fill", (e) => {
+        if (e.features && e.features.length > 0) {
+          const properties = e.features[0].properties;
+          new maplibregl.Popup()
+            .setLngLat(e.lngLat)
+            .setHTML(`
+              <div style="padding: 10px 10px 10px 10px;">
+                <h3 style="margin: 5px 5px 5px 5px;">${properties?.nm_dati2 ?? "Wilayah"}</h3>
+                <p style="margin: 10px;"><strong>Kode Provinsi:</strong> ${properties?.kd_propinsi ?? "-"}</p>
+              </div>
+            `)
+            .addTo(map);
+        }
+      });
     });
 
     // Tambahkan markers untuk data point
