@@ -7,7 +7,8 @@ import { BaseMap } from "@/component/BaseMap";
 
 enum JenisJaringanEnum {
   j2g = 'j2g',
-  j4g = 'j4g'
+  j4g = 'j4g',
+  all = 'all'
 }
 
 export default function Home() {
@@ -16,11 +17,17 @@ export default function Home() {
 
   React.useEffect(() => {
     if (jenisJaringan === JenisJaringanEnum.j2g) {
-      setDataMap(data2g);
+      setDataMap(data2g.map((d) => ({ ...d, networkType: "2G" })));
+    } else if (jenisJaringan === JenisJaringanEnum.j4g) {
+      setDataMap(data4g.map((d) => ({ ...d, networkType: "4G" })));
     } else {
-      setDataMap(data4g);
+      const merged = [
+        ...data2g.map((d) => ({...d, networkType: '2G'})),
+        ...data4g.map((d) => ({...d, networkType: '4G'})),
+      ];
+      setDataMap(merged);
     }
-  }, [jenisJaringan, setJenisJaringan])
+  }, [jenisJaringan])
 
   return (
     <div className="w-full min-h-screen overflow-hidden">
@@ -30,13 +37,15 @@ export default function Home() {
         <div className="flex items-center space-x-4 py-5">
           <label htmlFor="infratype" className="text-xl">Jenis Jaringan</label>
           <select
-            name="infratype" id="infratype"
+            name="infratype" 
+            id="infratype"
             className="p-2 border border-gray-300 rounded-md"
             value={jenisJaringan}
             onChange={(e) => setJenisJaringan(e.target.value as JenisJaringanEnum)}
           >
             <option value={JenisJaringanEnum.j2g}>Data 2G</option>
             <option value={JenisJaringanEnum.j4g}>Data 4G</option>
+            <option value={JenisJaringanEnum.all}>Data 2G + 4G</option>
           </select>
         </div>
         {/* pin map previewer */}

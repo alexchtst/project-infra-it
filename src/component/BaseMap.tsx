@@ -1,3 +1,5 @@
+"use client";
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
@@ -15,9 +17,11 @@ export function BaseMap({ data }: { data: MapData[] }) {
   const isMobile = useIsMobile();
   const mapContainerRef = React.useRef<HTMLDivElement | null>(null);
   const mapRef = React.useRef<maplibregl.Map | null>(null);
+  const [mapHeight, setMapHeight] = React.useState("600px");
 
   React.useEffect(() => {
     if (!mapContainerRef.current || !data || data.length === 0) return;
+    console.log(data);
 
     if (mapRef.current && typeof mapRef.current.remove === "function") {
       try {
@@ -156,7 +160,11 @@ export function BaseMap({ data }: { data: MapData[] }) {
       const lat = parseFloat(String(item.LATITUDE));
       const long = parseFloat(String(item.LONGITUDE));
       if (!isNaN(lat) && !isNaN(long)) {
-        new maplibregl.Marker({ color: "#e63946" })
+        let color = '#e63946';
+        if (item.networkType === '4G') {
+          color = '#1d4ed8';
+        }
+        new maplibregl.Marker({ color })
           .setLngLat([long, lat])
           .setPopup(
             new maplibregl.Popup({ offset: 25 }).setHTML(`
@@ -164,6 +172,7 @@ export function BaseMap({ data }: { data: MapData[] }) {
                 <strong>${item["DES/KEL"] ?? "Tidak diketahui"}</strong><br/>
                 ${item.KEC ?? ""}, ${item["KAB/KOT"] ?? ""}<br/>
                 <small>(${lat.toFixed(5)}, ${long.toFixed(5)})</small>
+                <span style="color:${color};font-weight:bold;">${item.networkType ?? ""}</span>
               </div>
             `)
           )
@@ -195,12 +204,20 @@ export function BaseMap({ data }: { data: MapData[] }) {
     };
   }, [data]);
 
+  React.useEffect(() => {
+    if (isMobile) {
+      setMapHeight("500px");
+    } else {
+      setMapHeight("600px");
+    }
+  }, [isMobile]);
+
   return (
     <div
       ref={mapContainerRef}
       style={{
         width: "100%",
-        height: isMobile ? "500px" : "600px",
+        height: mapHeight,
         borderRadius: "8px",
         overflow: "hidden",
       }}
