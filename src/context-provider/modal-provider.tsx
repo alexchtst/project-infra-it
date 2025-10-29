@@ -3,7 +3,11 @@
 import { createContext, useState } from "react";
 
 export enum ModalKindEnum {
-    loginopt = "loginopt",
+    infra2g = "infra2g",
+    infra4g = "infra4g",
+    puskesmas = "puskesmas",
+    sekolah = "sekolah",
+    option = "option"
 }
 
 export type ModalContextType = {

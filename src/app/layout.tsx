@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { DataFlowProvider } from "@/context-provider/data-flow-provider";
 import { ModalProvider } from "@/context-provider/modal-provider";
+import { DrawerProvider } from "@/context-provider/drawer-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +32,9 @@ export default function RootLayout({
       >
         <DataFlowProvider>
           <ModalProvider>
-            {children}
+            <DrawerProvider>
+              {children}
+            </DrawerProvider>
           </ModalProvider>
         </DataFlowProvider>
       </body>

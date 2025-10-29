@@ -1,8 +1,7 @@
 "use client";
 
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { ModalKindEnum } from "./modal-provider";
-import { useState } from "react";
 
 export type DataFlowContextType = {
     modalOption: ModalKindEnum | null,
