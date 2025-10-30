@@ -3,19 +3,12 @@ import { ModalContext } from "@/context-provider/modal-provider";
 import { X } from "lucide-react";
 import React from "react";
 import SearchDesa from "../search-desa";
-
-export enum mapdataproperty {
-    g4 = "4G",
-    g2 = "2G",
-    sekolah = "sekolah",
-    puskesmas = "puskesmas",
-    posyandu = "posyandu",
-    penduduk = "penduduk",
-}
+import { DataFlowContext } from "@/context-provider/data-flow-provider";
 
 export default function ModalStatistics() {
     const { setModalKind } = React.useContext(ModalContext);
     const { setShowedDrawer } = React.useContext(DrawerContext);
+    const { namadesaStatistic, setNamadesaStatistic } = React.useContext(DataFlowContext)
 
     function handleClose() {
         setModalKind(null);
@@ -51,7 +44,7 @@ export default function ModalStatistics() {
                     </p>
                 </div>
 
-                <SearchDesa />
+                <SearchDesa name={namadesaStatistic} setter={setNamadesaStatistic} />
 
                 <div className="flex gap-2">
                     <button
