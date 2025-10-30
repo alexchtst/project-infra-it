@@ -5,24 +5,20 @@ import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import React from "react";
 import KutaiTimurGeoJson from "@/data/map-geojson/id6404_kutai_timur.json";
-import { useIsMobile } from "@/hook/useMobile";
 import { ModalContext, ModalKindEnum } from "@/context-provider/modal-provider";
-import { CONFIG_SVG, GLOBE_SVG, MAP_SVG, STATISTIC_SVG } from "@/component/map-screen/svg-constant";
-import { DataFlowContext, maptype } from "@/context-provider/data-flow-provider";
+import { CONFIG_SVG, STATISTIC_SVG } from "@/component/map-screen/svg-constant";
 
 export function BaseMapComponent() {
-    const isMobile = useIsMobile();
     const mapContainerRef = React.useRef<HTMLDivElement | null>(null);
     const mapRef = React.useRef<maplibregl.Map | null>(null);
     const { setModalKind } = React.useContext(ModalContext);
-    const { mapType, setMapType } = React.useContext(DataFlowContext);
 
     React.useEffect(() => {
         if (mapRef.current || !mapContainerRef.current) return;
 
         const map = new maplibregl.Map({
             container: mapContainerRef.current,
-            style: `https://api.maptiler.com/maps/${mapType}/style.json?key=${process.env.NEXT_PUBLIC_TOKEN_MAP}`,
+            style: `https://api.maptiler.com/maps/satellite/style.json?key=${process.env.NEXT_PUBLIC_TOKEN_MAP}`,
             center: [117.5, -0.5],
             zoom: 12,
         });
@@ -39,30 +35,30 @@ export function BaseMapComponent() {
         map.addControl(geoControl, "top-right");
 
         // open street map type controller
-        const openStreetMapController = document.createElement("div");
-        openStreetMapController.className = "maplibregl-ctrl maplibregl-ctrl-group text-center p-[3px] cursor-pointer hover:bg-gray-300";
-        openStreetMapController.title = "Open Street Map";
-        openStreetMapController.innerHTML = MAP_SVG;
-        openStreetMapController.onclick = () => {
-            setMapType(maptype.streets);
-        };
-        map.addControl({
-            onAdd: () => openStreetMapController,
-            onRemove: () => openStreetMapController.remove(),
-        }, "top-right");
+        // const openStreetMapController = document.createElement("div");
+        // openStreetMapController.className = "maplibregl-ctrl maplibregl-ctrl-group text-center p-[3px] cursor-pointer hover:bg-gray-300";
+        // openStreetMapController.title = "Open Street Map";
+        // openStreetMapController.innerHTML = MAP_SVG;
+        // openStreetMapController.onclick = () => {
+        //     setMapType(maptype.streets);
+        // };
+        // map.addControl({
+        //     onAdd: () => openStreetMapController,
+        //     onRemove: () => openStreetMapController.remove(),
+        // }, "top-right");
 
         // open street map type controller
-        const satelliteMapController = document.createElement("div");
-        satelliteMapController.className = "maplibregl-ctrl maplibregl-ctrl-group text-center p-[3px] cursor-pointer hover:bg-gray-300";
-        satelliteMapController.title = "Satellite Map";
-        satelliteMapController.innerHTML = GLOBE_SVG;
-        satelliteMapController.onclick = () => {
-            setMapType(maptype.satellite);
-        };
-        map.addControl({
-            onAdd: () => satelliteMapController,
-            onRemove: () => satelliteMapController.remove(),
-        }, "top-right");
+        // const satelliteMapController = document.createElement("div");
+        // satelliteMapController.className = "maplibregl-ctrl maplibregl-ctrl-group text-center p-[3px] cursor-pointer hover:bg-gray-300";
+        // satelliteMapController.title = "Satellite Map";
+        // satelliteMapController.innerHTML = GLOBE_SVG;
+        // satelliteMapController.onclick = () => {
+        //     setMapType(maptype.satellite);
+        // };
+        // map.addControl({
+        //     onAdd: () => satelliteMapController,
+        //     onRemove: () => satelliteMapController.remove(),
+        // }, "top-right");
 
         // config controller
         const mapConfigControlContainer = document.createElement("div");
@@ -132,17 +128,11 @@ export function BaseMapComponent() {
         });
 
         return () => map.remove();
-    }, [mapType]);
+    }, []);
 
     return (
-        <div
-            ref={mapContainerRef}
-            style={{
-                width: "100%",
-                height: isMobile ? "500px" : "600px",
-                borderRadius: "8px",
-                overflow: "hidden",
-            }}
-        />
+        <div className="h-screen w-screen flex">
+            <div ref={mapContainerRef} className="flex-1 h-full w-full" />
+        </div>
     );
 }

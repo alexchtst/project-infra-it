@@ -2,6 +2,16 @@ import { DrawerContext, DrawerEnum } from "@/context-provider/drawer-provider";
 import { ModalContext } from "@/context-provider/modal-provider";
 import { X } from "lucide-react";
 import React from "react";
+import SearchDesa from "../search-desa";
+
+export enum mapdataproperty {
+    g4 = "4G",
+    g2 = "2G",
+    sekolah = "sekolah",
+    puskesmas = "puskesmas",
+    posyandu = "posyandu",
+    penduduk = "penduduk",
+}
 
 export default function ModalStatistics() {
     const { setModalKind } = React.useContext(ModalContext);
@@ -37,9 +47,11 @@ export default function ModalStatistics() {
                 <div className="text-center space-y-1">
                     <h2 className="text-xl font-semibold text-gray-800">Overview Statistik Daerah</h2>
                     <p className="text-sm text-gray-500">
-                        Pilih daerah <span className="font-bold">(opsional)</span> dan kondisi untuk melihat statistik penyebarannya
+                        Pilih daerah dan kondisi untuk melihat statistik penyebarannya
                     </p>
                 </div>
+
+                <SearchDesa />
 
                 <div className="flex gap-2">
                     <button

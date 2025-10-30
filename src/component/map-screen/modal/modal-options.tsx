@@ -3,6 +3,7 @@
 import React from "react";
 import { ModalContext } from "@/context-provider/modal-provider";
 import { X, CheckSquare, Square } from "lucide-react";
+import SearchDesa from "../search-desa";
 
 export enum mapdataproperty {
     g4 = "4G",
@@ -10,6 +11,7 @@ export enum mapdataproperty {
     sekolah = "sekolah",
     puskesmas = "puskesmas",
     posyandu = "posyandu",
+    penduduk = "penduduk",
 }
 
 export default function ModalOption() {
@@ -53,12 +55,15 @@ export default function ModalOption() {
                     </h2>
                     <p className="text-sm text-gray-500">
                         Pilih data yang akan ditampilkan sebagai{" "}
-                        <span className="font-medium text-gray-700">
-                            identifier unik
-                        </span>{" "}
+                        <span className="font-medium text-gray-700">sebaran</span>{" "}
+                        dan{" "}
+                        <span className="font-medium text-gray-700">kondisi</span>{" "}
+                        infrastruktur{" "}
                         pada peta.
                     </p>
                 </div>
+
+                <SearchDesa />
 
                 <div className="grid grid-cols-3 gap-2">
                     {Object.values(mapdataproperty).map((option) => {
@@ -68,8 +73,8 @@ export default function ModalOption() {
                                 key={option}
                                 onClick={() => handleToggle(option)}
                                 className={`w-full flex items-center justify-between border rounded-xl px-4 py-3 text-sm font-medium transition ${isSelected
-                                        ? "border-gray-500 bg-gray-50 text-gray-700"
-                                        : "border-gray-200 hover:border-gray-300 text-gray-700"
+                                    ? "border-gray-500 bg-gray-50 text-gray-700"
+                                    : "border-gray-200 hover:border-gray-300 text-gray-700"
                                     }`}
                             >
                                 <span className="capitalize">{option}</span>
