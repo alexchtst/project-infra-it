@@ -1,6 +1,6 @@
 import React from "react";
 import KutaiTimurGeoJSON from "@/data/map-geojson/id6404_kutai_timur.json"
-import { DataFlowContext } from "@/context-provider/data-flow-provider";
+import { NamaDaereahInterface } from "@/context-provider/data-flow-provider";
 
 export interface FeatureProps {
     type: string,
@@ -22,10 +22,10 @@ export interface FeatureProps {
 }
 
 export default function SearchDesa(
-    { name, setter }: { name: string, setter: (d: string) => void }
+    { name, setter }: { name: NamaDaereahInterface, setter: (d: NamaDaereahInterface) => void }
 ) {
 
-    const [query, setQuery] = React.useState(name);
+    const [query, setQuery] = React.useState(name.tobedisplayed);
     const [showSuggestion, setShowSuggestion] = React.useState(false);
     const [results, setResults] = React.useState<FeatureProps[]>([]);
 
@@ -63,9 +63,13 @@ export default function SearchDesa(
     }
 
     function handleSelect(feature: FeatureProps) {
-        const { village } = feature.properties;
-        setter(village);
-        setQuery(village);
+        const { village, district } = feature.properties;
+        setter({
+            district: district,
+            village: village,
+            tobedisplayed: `${village}-${district}`
+        });
+        setQuery(`${village}-${district}`);
         setShowSuggestion(false);
     }
 

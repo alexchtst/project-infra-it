@@ -4,12 +4,15 @@ import React from "react";
 import { ModalContext } from "@/context-provider/modal-provider";
 import { X, CheckSquare, Square } from "lucide-react";
 import SearchDesa from "../search-desa";
-import { DataFlowContext, mapdataproperty } from "@/context-provider/data-flow-provider";
+import { DataFlowContext, mapdataproperty, NamaDaereahInterface } from "@/context-provider/data-flow-provider";
 
 export default function ModalOption() {
     const { setModalKind } = React.useContext(ModalContext);
     const { configvalueManagement, namadesaConfig, setNamadesaConfig } = React.useContext(DataFlowContext)
     const [selectedOptions, setSelectedOptions] = React.useState<mapdataproperty[]>(configvalueManagement.data);
+
+    const [desa, setDesa] = React.useState<NamaDaereahInterface>(namadesaConfig);
+
 
     function handleClose() {
         setModalKind(null);
@@ -26,6 +29,7 @@ export default function ModalOption() {
     function handleSave() {
         console.log("Selected properties:", selectedOptions);
         configvalueManagement.setter(selectedOptions);
+        setNamadesaConfig(desa);
         setModalKind(null);
     }
 
@@ -57,7 +61,7 @@ export default function ModalOption() {
                     </p>
                 </div>
 
-                <SearchDesa name={namadesaConfig} setter={setNamadesaConfig} />
+                <SearchDesa name={desa} setter={setDesa} />
 
                 <div className="grid grid-cols-3 gap-2">
                     {Object.values(mapdataproperty).map((option) => {

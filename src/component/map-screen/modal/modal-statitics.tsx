@@ -3,14 +3,17 @@ import { ModalContext } from "@/context-provider/modal-provider";
 import { X } from "lucide-react";
 import React from "react";
 import SearchDesa from "../search-desa";
-import { DataFlowContext } from "@/context-provider/data-flow-provider";
+import { DataFlowContext, NamaDaereahInterface } from "@/context-provider/data-flow-provider";
 
 export default function ModalStatistics() {
     const { setModalKind } = React.useContext(ModalContext);
     const { setShowedDrawer } = React.useContext(DrawerContext);
     const { namadesaStatistic, setNamadesaStatistic } = React.useContext(DataFlowContext)
 
+    const [desa, setDesa] = React.useState<NamaDaereahInterface>(namadesaStatistic);
+
     function handleClose() {
+        setNamadesaStatistic(desa);
         setModalKind(null);
     }
 
@@ -44,7 +47,7 @@ export default function ModalStatistics() {
                     </p>
                 </div>
 
-                <SearchDesa name={namadesaStatistic} setter={setNamadesaStatistic} />
+                <SearchDesa name={desa} setter={setDesa} />
 
                 <div className="flex gap-2">
                     <button

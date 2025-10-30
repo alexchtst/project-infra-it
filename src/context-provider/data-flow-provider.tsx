@@ -17,10 +17,16 @@ export enum maptype {
     streets = "streets",
 }
 
+export interface NamaDaereahInterface {
+    village: string;
+    district: string;
+    tobedisplayed: string
+}
+
 export type DataFlowContextType = {
     modalOption: ModalKindEnum | null,
-    namadesaConfig: string;
-    namadesaStatistic: string;
+    namadesaConfig: NamaDaereahInterface;
+    namadesaStatistic: NamaDaereahInterface;
     configvalueManagement: {
         data: mapdataproperty[];
         reseter: () => void;
@@ -29,14 +35,14 @@ export type DataFlowContextType = {
         remover: (d: mapdataproperty) => void;
     }
     setModalOption: (d: ModalKindEnum | null) => void;
-    setNamadesaConfig: (d: string) => void;
-    setNamadesaStatistic: (d: string) => void;
+    setNamadesaConfig: (d: NamaDaereahInterface) => void;
+    setNamadesaStatistic: (d: NamaDaereahInterface) => void;
 }
 
 export const DataFlowContext = createContext<DataFlowContextType>({
     modalOption: null,
-    namadesaConfig: "",
-    namadesaStatistic: "",
+    namadesaConfig: {district: "", tobedisplayed: "", village: ""},
+    namadesaStatistic: {district: "", tobedisplayed: "", village: ""},
     configvalueManagement: {
         data: [],
         remover: () => { },
@@ -51,8 +57,8 @@ export const DataFlowContext = createContext<DataFlowContextType>({
 
 export const DataFlowProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [modalKind, setModalKind] = useState<ModalKindEnum | null>(null);
-    const [namadesaStatistic, setNamadesaStatistic] = useState<string>("");
-    const [namadesaConfig, setNamadesaConfig] = useState<string>("");
+    const [namadesaStatistic, setNamadesaStatistic] = useState<NamaDaereahInterface>({district: "", tobedisplayed: "", village: ""});
+    const [namadesaConfig, setNamadesaConfig] = useState<NamaDaereahInterface>({district: "", tobedisplayed: "", village: ""});
     const [configValue, setConfigValue] = useState<mapdataproperty[]>([]);
 
     function removeConfig(d: mapdataproperty) {
