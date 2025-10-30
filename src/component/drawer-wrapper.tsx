@@ -25,21 +25,21 @@ export default function DrawerWrapper({ listcontent }: { listcontent: DrawerWrap
                     ${isFullScreen ? 'h-screen rounded-t-none' : 'md:h-[30vw] h-[50vw]'}
                     ${showedDrawer ? 'translate-y-0' : 'translate-y-full'}`}
                 >
-                    <div className="w-full flex items-center justify-end space-x-5">
+                    <div className="w-full flex items-center justify-end space-x-3">
                         <div className="p-2 rounded-md hover:bg-gray-200 border border-gray-300 cursor-pointer transition">
-                            <ArrowRight />
+                            <ArrowRight width={15} height={15} />
                         </div>
                         <div
                             onClick={() => setIsFullScreen(!isFullScreen)}
                             className="p-2 rounded-md hover:bg-gray-200 border border-gray-300 cursor-pointer transition"
                         >
-                            {isFullScreen ? <ChevronsDown /> : <ChevronsUp />}
+                            {isFullScreen ? <ChevronsDown width={15} height={15} /> : <ChevronsUp width={15} height={15} />}
                         </div>
                         <div
                             onClick={() => { setShowedDrawer(null) }}
                             className="p-2 rounded-md hover:bg-red-500 border border-gray-300 hover:text-white cursor-pointer transition"
                         >
-                            <X />
+                            <X width={15} height={15} />
                         </div>
                     </div>
                     <div className="flex justify-center items-center w-full transition-all duration-500 ease-in-out">

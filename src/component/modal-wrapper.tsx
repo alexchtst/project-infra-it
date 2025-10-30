@@ -11,7 +11,7 @@ export interface ModalWrapperInterface {
 export default function ModalWrapper({ listcontent }: { listcontent: ModalWrapperInterface[] }) {
     const { modalKind } = React.useContext(ModalContext);
     return (
-        <div className={`${modalKind === null ? 'hidden' : 'fixed inset-0 bg-white/70 z-[100] flex items-center justify-center'}`}>
+        <div className={`${modalKind === null ? 'hidden' : 'fixed inset-0 bg-white/40 z-[100] flex items-center justify-center'}`}>
             {listcontent.find(c => c.name === modalKind)?.component}
         </div>
     );

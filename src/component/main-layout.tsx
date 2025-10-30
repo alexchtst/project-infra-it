@@ -7,6 +7,7 @@ import { ModalKindEnum } from "@/context-provider/modal-provider";
 import ModalOption from "./map-screen/modal/modal-options";
 import { DrawerEnum } from "@/context-provider/drawer-provider";
 import DrawerOption from "./map-screen/drawer/drawer-option";
+import ModalStatistics from "./map-screen/modal/modal-statitics";
 
 export function MainLayout({ children }: { children: React.ReactNode }) {
 
@@ -19,7 +20,8 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
 
             <ModalWrapper
                 listcontent={[
-                    { name: ModalKindEnum.option, component: <ModalOption /> }
+                    { name: ModalKindEnum.option, component: <ModalOption /> },
+                    { name: ModalKindEnum.statistic, component: <ModalStatistics /> }
                 ]}
             />
 

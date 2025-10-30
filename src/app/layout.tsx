@@ -31,11 +31,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning={true}
       >
         <DataFlowProvider>
-          <ModalProvider>
-            <DrawerProvider>
+          <DrawerProvider>
+            <ModalProvider>
               {children}
-            </DrawerProvider>
-          </ModalProvider>
+            </ModalProvider>
+          </DrawerProvider>
         </DataFlowProvider>
       </body>
     </html>
