@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { DataFlowProvider } from "@/context-provider/data-flow-provider";
+import { ModalProvider } from "@/context-provider/modal-provider";
+import { DrawerProvider } from "@/context-provider/drawer-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +30,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning={true}
       >
-        {children}
+        <DataFlowProvider>
+          <DrawerProvider>
+            <ModalProvider>
+              {children}
+            </ModalProvider>
+          </DrawerProvider>
+        </DataFlowProvider>
       </body>
     </html>
   );
