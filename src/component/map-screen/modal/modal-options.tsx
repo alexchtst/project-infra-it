@@ -13,7 +13,6 @@ export default function ModalOption() {
 
     const [desa, setDesa] = React.useState<NamaDaereahInterface>(namadesaConfig);
 
-
     function handleClose() {
         setModalKind(null);
     }

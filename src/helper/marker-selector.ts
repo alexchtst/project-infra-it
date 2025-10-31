@@ -1,6 +1,9 @@
 import { mapdataproperty } from "@/context-provider/data-flow-provider";
 import DataNetwork2GJSON from "@/data/data_2g.json";
 import DataNetwork4GJSON from "@/data/data_4g.json";
+import DataSebaranKebutuhanListrikJSON from "@/data/data-listrik.json";
+import DataDemoGrafiJSON from "@/data/data-demografi.json";
+import DataSekolahJson from "@/data/data-sekolah.json";
 
 export interface DataNetworkJSONInterface {
   "DES/KEL": string;
@@ -24,18 +27,40 @@ export interface DataNetworkInterface {
   lat: number;
 }
 
+export interface DataKebutuhanListrikInterface {
+  village: string;
+  district: string;
+  citizens: number;
+  info: string;
+}
+
+export interface DataDemografiInterface {
+  district: string;
+  male: number;
+  female: number;
+  citizens: number;
+}
+
+export interface DataSekolahInterface {
+  name: string;
+  district: string;
+  longitude: number;
+  latitude: number;
+}
+
 export function NetworkDataSelector(
   district?: string,
-  village?: string,
   type: mapdataproperty.g2 | mapdataproperty.g4 = mapdataproperty.g2
 ): DataNetworkInterface[] {
-  const data = type === mapdataproperty.g2 ? DataNetwork2GJSON as DataNetworkJSONInterface[] : DataNetwork4GJSON as DataNetworkJSONInterface[];
+  const data =
+    type === mapdataproperty.g2
+      ? (DataNetwork2GJSON as DataNetworkJSONInterface[])
+      : (DataNetwork4GJSON as DataNetworkJSONInterface[]);
 
-  const filtered = data.filter((item) => {
+  const filtered = district ? data.filter((item) => {
     const matchDistrict = district ? item.KEC === district : true;
-    const matchVillage = village ? item["DES/KEL"] === village : true;
-    return matchDistrict && matchVillage;
-  });
+    return matchDistrict;
+  }) : data;
 
   return filtered.map((item) => ({
     village: item["DES/KEL"],
@@ -43,5 +68,60 @@ export function NetworkDataSelector(
     kdepum: item.KDEPUM,
     long: item.LONGITUDE,
     lat: item.LATITUDE,
+  }));
+}
+
+export function KebutuhanListrikDataSelector(
+  district?: string,
+): DataKebutuhanListrikInterface[] {
+  const data =
+    DataSebaranKebutuhanListrikJSON as DataKebutuhanListrikInterface[];
+
+  const filtered = district ? data.filter((item) => {
+    const matchDistrict = district ? item.district === district : true;
+    return matchDistrict;
+  }) : data;
+
+  return filtered.map((item) => ({
+    village: item.village,
+    district: item.district,
+    citizens: item.citizens,
+    info: item.info,
+  }));
+}
+
+export function DemografiDataSelector(
+  district?: string,
+): DataDemografiInterface[] {
+  const data = DataDemoGrafiJSON as DataDemografiInterface[];
+
+  const filtered = data.filter((item) => {
+    const matchDistrict = district ? item.district === district : true;
+    return matchDistrict;
+  });
+
+  return filtered.map((item) => ({
+    district: item.district,
+    citizens: item.citizens,
+    female: item.female,
+    male: item.male,
+  }));
+}
+
+export function SekolahDataSelector(
+  district?: string,
+): DataSekolahInterface[] {
+  const data = DataSekolahJson as DataSekolahInterface[];
+
+  const filtered = district ? data.filter((item) => {
+    const matchDistrict = district ? item.district === district : true;
+    return matchDistrict;
+  }) : data;
+
+  return filtered.map((item) => ({
+    name: item.name,
+    district: item.district,
+    latitude: item.latitude,
+    longitude: item.longitude,
   }));
 }

@@ -1,0 +1,1148 @@
+[
+    {
+        "name": "SD Negeri  001 Batu Ampar",
+        "district": "Batu Ampar",
+        "latitude": 116.8216,
+        "longitude": 0.68287
+    },
+    {
+        "name": "SD Negeri  007 Batu Ampar",
+        "district": "Batu Ampar",
+        "latitude": 117.04641,
+        "longitude": 0.79678
+    },
+    {
+        "name": "KORWIL PENDIDIKAN Batu Ampar",
+        "district": "Batu Ampar",
+        "latitude": 116.83257,
+        "longitude": 0.68016
+    },
+    {
+        "name": "TK NEGERI 1 Batu Ampar",
+        "district": "Batu Ampar",
+        "latitude": 116.83044,
+        "longitude": 0.67971
+    },
+    {
+        "name": "SD Negeri  003 Batu Ampar",
+        "district": "Batu Ampar",
+        "latitude": 116.82947,
+        "longitude": 0.67879
+    },
+    {
+        "name": "SD Negeri  005 Batu Ampar",
+        "district": "Batu Ampar",
+        "latitude": 116.86586,
+        "longitude": 0.57183
+    },
+    {
+        "name": "SD Negeri  017 Bengalon",
+        "district": "Bengalon",
+        "latitude": 117.23324,
+        "longitude": 0.7106
+    },
+    {
+        "name": "SD Negeri  002 Bengalon",
+        "district": "Bengalon",
+        "latitude": 117.44023,
+        "longitude": 0.77781
+    },
+    {
+        "name": "SD Negeri  003 Bengalon",
+        "district": "Bengalon",
+        "latitude": 117.7846,
+        "longitude": 0.78218
+    },
+    {
+        "name": "SD Negeri  006 Bengalon",
+        "district": "Bengalon",
+        "latitude": 117.70371,
+        "longitude": 0.62732
+    },
+    {
+        "name": "SD Negeri  007 Bengalon",
+        "district": "Bengalon",
+        "latitude": 117.71864,
+        "longitude": 0.74908
+    },
+    {
+        "name": "SD Negeri  009 Bengalon",
+        "district": "Bengalon",
+        "latitude": 117.32358,
+        "longitude": 0.70775
+    },
+    {
+        "name": "SD Negeri  011 Bengalon",
+        "district": "Bengalon",
+        "latitude": 117.30662,
+        "longitude": 0.67019
+    },
+    {
+        "name": "SD Negeri  014 Bengalon",
+        "district": "Bengalon",
+        "latitude": 117.68537,
+        "longitude": 0.82781
+    },
+    {
+        "name": "SD Negeri  016 Bengalon",
+        "district": "Bengalon",
+        "latitude": 117.24369,
+        "longitude": 0.82457
+    },
+    {
+        "name": "SD Negeri  018 Bengalon",
+        "district": "Bengalon",
+        "latitude": 117.48306,
+        "longitude": 0.81018
+    },
+    {
+        "name": "SD Negeri  019 Bengalon",
+        "district": "Bengalon",
+        "latitude": 117.62616,
+        "longitude": 0.6576
+    },
+    {
+        "name": "SD Negeri  020 Bengalon",
+        "district": "Bengalon",
+        "latitude": 117.54359,
+        "longitude": 0.75012
+    },
+    {
+        "name": "SMP Negeri  05 Bengalon",
+        "district": "Bengalon",
+        "latitude": 117.67284,
+        "longitude": 0.63405
+    },
+    {
+        "name": "KANTOR KORWIL Busang",
+        "district": "Busang",
+        "latitude": 116.555327,
+        "longitude": 0.817116
+    },
+    {
+        "name": "SD Negeri  001 Busang",
+        "district": "Busang",
+        "latitude": 116.62628,
+        "longitude": 0.73158
+    },
+    {
+        "name": "SD Negeri  002 Busang",
+        "district": "Busang",
+        "latitude": 116.56314,
+        "longitude": 0.81814
+    },
+    {
+        "name": "SD Negeri  003 Busang",
+        "district": "Busang",
+        "latitude": 116.56909,
+        "longitude": 0.78847
+    },
+    {
+        "name": "SD Negeri  004 Busang",
+        "district": "Busang",
+        "latitude": 116.62527,
+        "longitude": 0.7434
+    },
+    {
+        "name": "SD Negeri  005 Busang",
+        "district": "Busang",
+        "latitude": 116.55306,
+        "longitude": 0.82674
+    },
+    {
+        "name": "SD Negeri  006 Busang",
+        "district": "Busang",
+        "latitude": 116.39565,
+        "longitude": 0.77329
+    },
+    {
+        "name": "SMP Negeri  01 Busang",
+        "district": "Busang",
+        "latitude": 116.55759,
+        "longitude": 0.81745
+    },
+    {
+        "name": "SMP Negeri  02 Busang",
+        "district": "Busang",
+        "latitude": 116.62687,
+        "longitude": 0.73154
+    },
+    {
+        "name": "TK Negeri 1 Busang",
+        "district": "Busang",
+        "latitude": 116.56091,
+        "longitude": 0.81716
+    },
+    {
+        "name": "TK Negeri 2 Busang",
+        "district": "Busang",
+        "latitude": 116.62511,
+        "longitude": 0.74388
+    },
+    {
+        "name": "SD Negeri  001 Kaliorang",
+        "district": "Kaliorang",
+        "latitude": 117.86395,
+        "longitude": 0.8172
+    },
+    {
+        "name": "SD Negeri  004 Kaliorang",
+        "district": "Kaliorang",
+        "latitude": 117.90562,
+        "longitude": 0.90188
+    },
+    {
+        "name": "SD Negeri  006 Kaliorang",
+        "district": "Kaliorang",
+        "latitude": 117.84433,
+        "longitude": 0.87797
+    },
+    {
+        "name": "SD Negeri  007 Kaliorang",
+        "district": "Kaliorang",
+        "latitude": 117.87905,
+        "longitude": 0.88604
+    },
+    {
+        "name": "SD Negeri  008 Kaliorang",
+        "district": "Kaliorang",
+        "latitude": 117.86726,
+        "longitude": 0.87659
+    },
+    {
+        "name": "SD Negeri  009 Kaliorang",
+        "district": "Kaliorang",
+        "latitude": 117.84548,
+        "longitude": 0.92152
+    },
+    {
+        "name": "SMP Negeri  02 Kaliorang",
+        "district": "Kaliorang",
+        "latitude": 117.90414,
+        "longitude": 0.9012
+    },
+    {
+        "name": "SMP Negeri  03 Kaliorang",
+        "district": "Kaliorang",
+        "latitude": 117.8344,
+        "longitude": 0.89515
+    },
+    {
+        "name": "TK Negeri I Kaliorang",
+        "district": "Kaliorang",
+        "latitude": 117.86726,
+        "longitude": 0.87659
+    },
+    {
+        "name": "KANTOR KORWIL Karangan",
+        "district": "Karangan",
+        "latitude": 117.645383,
+        "longitude": 1.31846
+    },
+    {
+        "name": "SD Negeri  002 Karangan",
+        "district": "Karangan",
+        "latitude": 117.7524,
+        "longitude": 1.25078
+    },
+    {
+        "name": "SD Negeri  003 Karangan",
+        "district": "Karangan",
+        "latitude": 117.75025,
+        "longitude": 1.3649
+    },
+    {
+        "name": "SD Negeri  004 Karangan",
+        "district": "Karangan",
+        "latitude": 117.7067,
+        "longitude": 1.35265
+    },
+    {
+        "name": "SD Negeri  005 Karangan",
+        "district": "Karangan",
+        "latitude": 117.6746,
+        "longitude": 1.2649
+    },
+    {
+        "name": "SD Negeri  007 Karangan",
+        "district": "Karangan",
+        "latitude": 117.85941,
+        "longitude": 1.4456
+    },
+    {
+        "name": "SD Negeri  008 Karangan",
+        "district": "Karangan",
+        "latitude": 117.66462,
+        "longitude": 1.35745
+    },
+    {
+        "name": "SMP Negeri  01 Karangan",
+        "district": "Karangan",
+        "latitude": 117.67638,
+        "longitude": 1.35822
+    },
+    {
+        "name": "SMP Negeri  02 Karangan",
+        "district": "Karangan",
+        "latitude": 117.74919,
+        "longitude": 1.36504
+    },
+    {
+        "name": "TK PEMBINA NEGERI Karangan",
+        "district": "Karangan",
+        "latitude": 117.65064,
+        "longitude": 1.35761
+    },
+    {
+        "name": "KORWIL PENDIDIKAN Kaubun",
+        "district": "Kaubun",
+        "latitude": 117.85432,
+        "longitude": 1.082827
+    },
+    {
+        "name": "SD Negeri  001 Kaubun",
+        "district": "Kaubun",
+        "latitude": 117.886346,
+        "longitude": 0.997575
+    },
+    {
+        "name": "SD Negeri  002 Kaubun",
+        "district": "Kaubun",
+        "latitude": 117.84657,
+        "longitude": 1.02168
+    },
+    {
+        "name": "SD Negeri  005 Kaubun",
+        "district": "Kaubun",
+        "latitude": 117.83428,
+        "longitude": 1.187929
+    },
+    {
+        "name": "SD Negeri  006 Kaubun",
+        "district": "Kaubun",
+        "latitude": 117.81462,
+        "longitude": 1.20198
+    },
+    {
+        "name": "TK NEGERI 1 Kaubun",
+        "district": "Kaubun",
+        "latitude": 117.85536,
+        "longitude": 1.08103
+    },
+    {
+        "name": "SD Negeri  007 Kaubun",
+        "district": "Kaubun",
+        "latitude": 117.79191,
+        "longitude": 1.0775
+    },
+    {
+        "name": "SD Negeri  008 Kaubun",
+        "district": "Kaubun",
+        "latitude": 117.76355,
+        "longitude": 1.08559
+    },
+    {
+        "name": "SMP Negeri  01 Kaubun",
+        "district": "Kaubun",
+        "latitude": 117.8609,
+        "longitude": 1.04596
+    },
+    {
+        "name": "TK NEGERI 2 Kaubun",
+        "district": "Kaubun",
+        "latitude": 117.85925,
+        "longitude": 1.04746
+    },
+    {
+        "name": "SMP Negeri  02 Kaubun",
+        "district": "Kaubun",
+        "latitude": 117.83556,
+        "longitude": 1.19715
+    },
+    {
+        "name": "SMP Negeri  03 Kaubun",
+        "district": "Kaubun",
+        "latitude": 117.882667,
+        "longitude": 0.996281
+    },
+    {
+        "name": "SMP Negeri  04 Kaubun",
+        "district": "Kaubun",
+        "latitude": 117.79287,
+        "longitude": 1.07776
+    },
+    {
+        "name": "SMP Negeri  05 Kaubun",
+        "district": "Kaubun",
+        "latitude": 117.85747,
+        "longitude": 1.08135
+    },
+    {
+        "name": "SD Negeri  009 Kongbeng",
+        "district": "Kongbeng",
+        "latitude": 117.073,
+        "longitude": 1.22125
+    },
+    {
+        "name": "SD Negeri  010 Kongbeng",
+        "district": "Kongbeng",
+        "latitude": 116.90044,
+        "longitude": 1.28829
+    },
+    {
+        "name": "SD Negeri  007 Kongbeng",
+        "district": "Kongbeng",
+        "latitude": 116.99794,
+        "longitude": 1.05256
+    },
+    {
+        "name": "SD Negeri  011 Kongbeng",
+        "district": "Kongbeng",
+        "latitude": 117.00672,
+        "longitude": 1.13975
+    },
+    {
+        "name": "KORWIL PENDIDIKAN Kongbeng",
+        "district": "Kongbeng",
+        "latitude": 116.920561,
+        "longitude": 1.08733
+    },
+    {
+        "name": "SD Negeri  005 Kongbeng",
+        "district": "Kongbeng",
+        "latitude": 116.93834,
+        "longitude": 1.05905
+    },
+    {
+        "name": "SD Negeri  006 Kongbeng",
+        "district": "Kongbeng",
+        "latitude": 116.96576,
+        "longitude": 1.05436
+    },
+    {
+        "name": "KORWIL PENDIDIKAN Long Mesangat",
+        "district": "Long Mesangat",
+        "latitude": 116.721189,
+        "longitude": 0.570793
+    },
+    {
+        "name": "SD Negeri  003 Long Mesangat",
+        "district": "Long Mesangat",
+        "latitude": 116.69312,
+        "longitude": 0.63613
+    },
+    {
+        "name": "SD Negeri  001 Long Mesangat",
+        "district": "Long Mesangat",
+        "latitude": 116.64541,
+        "longitude": 0.66981
+    },
+    {
+        "name": "SD Negeri  002 Long Mesangat",
+        "district": "Long Mesangat",
+        "latitude": 116.6974,
+        "longitude": 0.66709
+    },
+    {
+        "name": "SD Negeri  004 Long Mesangat",
+        "district": "Long Mesangat",
+        "latitude": 116.70642,
+        "longitude": 0.588
+    },
+    {
+        "name": "SD Negeri  005 Long Mesangat",
+        "district": "Long Mesangat",
+        "latitude": 116.71431,
+        "longitude": 0.57676
+    },
+    {
+        "name": "SD Negeri  006 Long Mesangat",
+        "district": "Long Mesangat",
+        "latitude": 116.73413,
+        "longitude": 0.55649
+    },
+    {
+        "name": "SD Negeri  007 Long Mesangat",
+        "district": "Long Mesangat",
+        "latitude": 116.75517,
+        "longitude": 0.55539
+    },
+    {
+        "name": "SMP Negeri  01 Long Mesangat",
+        "district": "Long Mesangat",
+        "latitude": 116.71355,
+        "longitude": 0.57497
+    },
+    {
+        "name": "TK NEGERI 1 Long Mesangat",
+        "district": "Long Mesangat",
+        "latitude": 116.72085,
+        "longitude": 0.57104
+    },
+    {
+        "name": "KORWIL PENDIDIKAN Muara Ancalong",
+        "district": "Muara Ancalong",
+        "latitude": 116.683078,
+        "longitude": 0.424718
+    },
+    {
+        "name": "SD Negeri  005 Muara Ancalong",
+        "district": "Muara Ancalong",
+        "latitude": 116.63873,
+        "longitude": 0.64199
+    },
+    {
+        "name": "SD Negeri  006 Muara Ancalong",
+        "district": "Muara Ancalong",
+        "latitude": 116.67896,
+        "longitude": 0.4309
+    },
+    {
+        "name": "SD Negeri  007 Muara Ancalong",
+        "district": "Muara Ancalong",
+        "latitude": 116.64079,
+        "longitude": 0.64015
+    },
+    {
+        "name": "SD Negeri  009 Muara Ancalong",
+        "district": "Muara Ancalong",
+        "latitude": 116.66581,
+        "longitude": 0.60964
+    },
+    {
+        "name": "SD Negeri  010 Muara Ancalong",
+        "district": "Muara Ancalong",
+        "latitude": 116.65092,
+        "longitude": 0.63869
+    },
+    {
+        "name": "SD Negeri  011 Muara Ancalong",
+        "district": "Muara Ancalong",
+        "latitude": 116.64346,
+        "longitude": 0.6169
+    },
+    {
+        "name": "SD Negeri  012 Muara Ancalong",
+        "district": "Muara Ancalong",
+        "latitude": 116.49301,
+        "longitude": 0.68114
+    },
+    {
+        "name": "TK NEGERI 3 Muara Ancalong",
+        "district": "Muara Ancalong",
+        "latitude": 116.61469,
+        "longitude": 0.31334
+    },
+    {
+        "name": "KORWIL PENDIDIKAN Muara Bengkal",
+        "district": "Muara Bengkal",
+        "latitude": 116.730864,
+        "longitude": 0.437125
+    },
+    {
+        "name": "SD Negeri  004 Muara Bengkal",
+        "district": "Muara Bengkal",
+        "latitude": 116.7189,
+        "longitude": 0.45653
+    },
+    {
+        "name": "SD Negeri  007 Muara Bengkal",
+        "district": "Muara Bengkal",
+        "latitude": 116.72601,
+        "longitude": 0.4582
+    },
+    {
+        "name": "SMP Negeri  01 Muara Bengkal",
+        "district": "Muara Bengkal",
+        "latitude": 116.71515,
+        "longitude": 0.43166
+    },
+    {
+        "name": "SMP Negeri  02 Muara Bengkal",
+        "district": "Muara Bengkal",
+        "latitude": 116.78574,
+        "longitude": 0.52436
+    },
+    {
+        "name": "SD Negeri  001 Muara Bengkal",
+        "district": "Muara Bengkal",
+        "latitude": 116.70797,
+        "longitude": 0.40564
+    },
+    {
+        "name": "SD Negeri  002 Muara Bengkal",
+        "district": "Muara Bengkal",
+        "latitude": 116.77971,
+        "longitude": 0.31304
+    },
+    {
+        "name": "SD Negeri  003 Muara Bengkal",
+        "district": "Muara Bengkal",
+        "latitude": 116.716,
+        "longitude": 0.43552
+    },
+    {
+        "name": "SD Negeri  005 Muara Bengkal",
+        "district": "Muara Bengkal",
+        "latitude": 116.71333,
+        "longitude": 0.43096
+    },
+    {
+        "name": "SD Negeri  006 Muara Bengkal",
+        "district": "Muara Bengkal",
+        "latitude": 116.71858,
+        "longitude": 0.43858
+    },
+    {
+        "name": "SD Negeri  008 Muara Bengkal",
+        "district": "Muara Bengkal",
+        "latitude": 116.78285,
+        "longitude": 0.2308
+    },
+    {
+        "name": "SD Negeri  009 Muara Bengkal",
+        "district": "Muara Bengkal",
+        "latitude": 116.78628,
+        "longitude": 0.52483
+    },
+    {
+        "name": "SMP Negeri  03 Muara Bengkal",
+        "district": "Muara Bengkal",
+        "latitude": 116.78342,
+        "longitude": 0.23145
+    },
+    {
+        "name": "SMP Negeri  04 Muara Bengkal",
+        "district": "Muara Bengkal",
+        "latitude": 116.78136,
+        "longitude": 0.31926
+    },
+    {
+        "name": "TK NEGERI 1 Muara Bengkal",
+        "district": "Muara Bengkal",
+        "latitude": 116.71596,
+        "longitude": 0.4316
+    },
+    {
+        "name": "TK NEGERI 2 Muara Bengkal",
+        "district": "Muara Bengkal",
+        "latitude": 116.71986,
+        "longitude": 0.45486
+    },
+    {
+        "name": "KANTOR KORWIL Muara Wahau",
+        "district": "Muara Wahau",
+        "latitude": 116.840465,
+        "longitude": 1.059312
+    },
+    {
+        "name": "SD Negeri  011 Muara Wahau",
+        "district": "Muara Wahau",
+        "latitude": 116.8008,
+        "longitude": 1.13513
+    },
+    {
+        "name": "SD Negeri  012 Muara Wahau",
+        "district": "Muara Wahau",
+        "latitude": 116.75226,
+        "longitude": 1.17827
+    },
+    {
+        "name": "SD Negeri  014 Muara Wahau",
+        "district": "Muara Wahau",
+        "latitude": 116.88653,
+        "longitude": 1.21537
+    },
+    {
+        "name": "SD Negeri  015 Muara Wahau",
+        "district": "Muara Wahau",
+        "latitude": 116.77674,
+        "longitude": 1.28026
+    },
+    {
+        "name": "SD Negeri  016 Muara Wahau",
+        "district": "Muara Wahau",
+        "latitude": 116.73859,
+        "longitude": 1.24622
+    },
+    {
+        "name": "SD Negeri 001 Muara Wahau",
+        "district": "Muara Wahau",
+        "latitude": 116.85403,
+        "longitude": 1.04396
+    },
+    {
+        "name": "SD Negeri 006 Muara Wahau",
+        "district": "Muara Wahau",
+        "latitude": 116.76575,
+        "longitude": 1.076417
+    },
+    {
+        "name": "SD Negeri 009 Muara Wahau",
+        "district": "Muara Wahau",
+        "latitude": 116.904194,
+        "longitude": 1.043889
+    },
+    {
+        "name": "SD Negeri 010 Muara Wahau",
+        "district": "Muara Wahau",
+        "latitude": 116.85193,
+        "longitude": 1.03751
+    },
+    {
+        "name": "SD Negeri 013 Muara Wahau",
+        "district": "Muara Wahau",
+        "latitude": 116.90019,
+        "longitude": 0.97481
+    },
+    {
+        "name": "SD Negeri 017 Muara Wahau",
+        "district": "Muara Wahau",
+        "latitude": 116.95356,
+        "longitude": 1.02251
+    },
+    {
+        "name": "SD Negeri 018 Muara Wahau",
+        "district": "Muara Wahau",
+        "latitude": 116.814694,
+        "longitude": 1.045083
+    },
+    {
+        "name": "SMP Negeri  03 Muara Wahau",
+        "district": "Muara Wahau",
+        "latitude": 116.76814,
+        "longitude": 1.08144
+    },
+    {
+        "name": "SMP Negeri  2 Muara Wahau",
+        "district": "Muara Wahau",
+        "latitude": 116.90076,
+        "longitude": 1.08784
+    },
+    {
+        "name": "TK NEGERI 2 Rantau Pulung",
+        "district": "Rantau Pulung",
+        "latitude": 117.26291,
+        "longitude": 0.74891
+    },
+    {
+        "name": "SD Negeri  008 Rantau Pulung",
+        "district": "Rantau Pulung",
+        "latitude": 117.259381,
+        "longitude": 0.684719
+    },
+    {
+        "name": "SD Negeri  005 Rantau Pulung",
+        "district": "Rantau Pulung",
+        "latitude": 117.26251,
+        "longitude": 0.6499
+    },
+    {
+        "name": "TK NEGERI 1 Rantau Pulung",
+        "district": "Rantau Pulung",
+        "latitude": 117.28853,
+        "longitude": 0.62348
+    },
+    {
+        "name": "SD Negeri  009 Rantau Pulung",
+        "district": "Rantau Pulung",
+        "latitude": 117.29751,
+        "longitude": 0.59098
+    },
+    {
+        "name": "KANTOR KORWIL Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.497675,
+        "longitude": 0.831594
+    },
+    {
+        "name": "SD FILIAL SD Negeri  007 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.193002,
+        "longitude": 0.969985
+    },
+    {
+        "name": "SD FILIAL SD Negeri  008 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.936508,
+        "longitude": 0.939244
+    },
+    {
+        "name": "SD FILIAL SD Negeri  009 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.183543,
+        "longitude": 0.898379
+    },
+    {
+        "name": "SD Negeri  001 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.2047,
+        "longitude": 0.90008
+    },
+    {
+        "name": "SD Negeri  002 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.32928,
+        "longitude": 0.86511
+    },
+    {
+        "name": "SD Negeri  003 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.9828,
+        "longitude": 1.02315
+    },
+    {
+        "name": "SD Negeri  004 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.54732,
+        "longitude": 0.98871
+    },
+    {
+        "name": "SD Negeri  005 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.34486,
+        "longitude": 0.82889
+    },
+    {
+        "name": "SD Negeri  006 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.87011,
+        "longitude": 0.87826
+    },
+    {
+        "name": "SD Negeri  007 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.21609,
+        "longitude": 0.91613
+    },
+    {
+        "name": "SD Negeri  008 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.97772,
+        "longitude": 1.00725
+    },
+    {
+        "name": "SD Negeri  009 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.19756,
+        "longitude": 0.87584
+    },
+    {
+        "name": "SD Negeri  010 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.49294,
+        "longitude": 0.8789
+    },
+    {
+        "name": "SD Negeri  011 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.43138,
+        "longitude": 0.92889
+    },
+    {
+        "name": "SD Negeri  012 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.78781,
+        "longitude": 0.81852
+    },
+    {
+        "name": "SMP Negeri  01 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.49662,
+        "longitude": 0.83125
+    },
+    {
+        "name": "SMP Negeri  02 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.20348,
+        "longitude": 0.8993
+    },
+    {
+        "name": "SMP Negeri  03 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.9828,
+        "longitude": 1.02315
+    },
+    {
+        "name": "SMP Negeri  04 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.87444,
+        "longitude": 0.87849
+    },
+    {
+        "name": "SMP Negeri  05 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.32738,
+        "longitude": 0.86709
+    },
+    {
+        "name": "TK NEGERI PEMBINA 1 Sandaran",
+        "district": "Sandaran",
+        "latitude": 118.494,
+        "longitude": 0.83396
+    },
+    {
+        "name": "SD Negeri  008 Sangatta Selatan",
+        "district": "Sangatta Selatan",
+        "latitude": 117.48364,
+        "longitude": 0.33959
+    },
+    {
+        "name": "SD Negeri  003 Sangatta Selatan",
+        "district": "Sangatta Selatan",
+        "latitude": 117.53076,
+        "longitude": 0.34341
+    },
+    {
+        "name": "TK NEGERI Sangatta Selatan",
+        "district": "Sangatta Selatan",
+        "latitude": 117.513271,
+        "longitude": 0.377692
+    },
+    {
+        "name": "SD Negeri  013 Sangatta Selatan",
+        "district": "Sangatta Selatan",
+        "latitude": 117.55976,
+        "longitude": 0.38158
+    },
+    {
+        "name": "SMP Negeri  06 Sangatta Utara",
+        "district": "Sangatta Utara",
+        "latitude": 117.598831,
+        "longitude": 0.511638
+    },
+    {
+        "name": "SD Negeri  008 Sangatta Utara",
+        "district": "Sangatta Utara",
+        "latitude": 117.61406,
+        "longitude": 0.55572
+    },
+    {
+        "name": "SD Negeri  001 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 118.00297,
+        "longitude": 1.00361
+    },
+    {
+        "name": "SD Negeri  002 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 117.9995,
+        "longitude": 1.04948
+    },
+    {
+        "name": "SD Negeri  004 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 118.01357,
+        "longitude": 0.73993
+    },
+    {
+        "name": "SD Negeri  005 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 117.88084,
+        "longitude": 1.1927
+    },
+    {
+        "name": "SD Negeri  008 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 118.14124,
+        "longitude": 0.90027
+    },
+    {
+        "name": "SD Negeri  009 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 118.02042,
+        "longitude": 0.83386
+    },
+    {
+        "name": "SD Negeri  010 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 118.06114,
+        "longitude": 0.9129
+    },
+    {
+        "name": "SD Negeri  011 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 117.87995,
+        "longitude": 1.13829
+    },
+    {
+        "name": "SD Negeri  012 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 117.975917,
+        "longitude": 0.9955
+    },
+    {
+        "name": "SD Negeri  013 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 117.92257,
+        "longitude": 0.99977
+    },
+    {
+        "name": "SD Negeri  014 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 117.90828,
+        "longitude": 1.21626
+    },
+    {
+        "name": "SD Negeri  015 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 118.0037,
+        "longitude": 1.09817
+    },
+    {
+        "name": "SD Negeri  016 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 117.901194,
+        "longitude": 0.917222
+    },
+    {
+        "name": "SD Negeri  017 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 117.94025,
+        "longitude": 0.945611
+    },
+    {
+        "name": "SD Negeri  018 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 118.10478,
+        "longitude": 0.90358
+    },
+    {
+        "name": "SD Negeri  019 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 118.09589,
+        "longitude": 0.9884
+    },
+    {
+        "name": "SMP Negeri  02 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 117.99998,
+        "longitude": 1.052447
+    },
+    {
+        "name": "SMP Negeri  03 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 117.87957,
+        "longitude": 1.19637
+    },
+    {
+        "name": "SMP Negeri  04 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 118.01246,
+        "longitude": 0.83395
+    },
+    {
+        "name": "SMP Negeri  05 Sangkulirang",
+        "district": "Sangkulirang",
+        "latitude": 118.0991,
+        "longitude": 0.90388
+    },
+    {
+        "name": "KORWIL PENDIDIKAN Telen",
+        "district": "Telen",
+        "latitude": 116.864523,
+        "longitude": 0.887844
+    },
+    {
+        "name": "SD Negeri  001 Telen",
+        "district": "Telen",
+        "latitude": 116.81088,
+        "longitude": 0.84238
+    },
+    {
+        "name": "SD Negeri  002 Telen",
+        "district": "Telen",
+        "latitude": 116.8071,
+        "longitude": 0.84195
+    },
+    {
+        "name": "SD Negeri  003 Telen",
+        "district": "Telen",
+        "latitude": 116.80982,
+        "longitude": 0.84559
+    },
+    {
+        "name": "SD Negeri  004 Telen",
+        "district": "Telen",
+        "latitude": 116.8182,
+        "longitude": 0.75939
+    },
+    {
+        "name": "SD Negeri  005 Telen",
+        "district": "Telen",
+        "latitude": 116.85493,
+        "longitude": 0.93919
+    },
+    {
+        "name": "SD Negeri  006 Telen",
+        "district": "Telen",
+        "latitude": 116.86278,
+        "longitude": 0.8933
+    },
+    {
+        "name": "SD Negeri  007 Telen",
+        "district": "Telen",
+        "latitude": 116.866601,
+        "longitude": 0.881378
+    },
+    {
+        "name": "SMP Negeri  01 Telen",
+        "district": "Telen",
+        "latitude": 116.86376,
+        "longitude": 0.88578
+    },
+    {
+        "name": "SMP Negeri  02 Telen",
+        "district": "Telen",
+        "latitude": 116.82246,
+        "longitude": 0.79405
+    },
+    {
+        "name": "SMP Negeri  03 Telen",
+        "district": "Telen",
+        "latitude": 116.80982,
+        "longitude": 0.84559
+    },
+    {
+        "name": "TK NEGERI Telen",
+        "district": "Telen",
+        "latitude": 116.86278,
+        "longitude": 0.8933
+    },
+    {
+        "name": "SMP Negeri  02 Teluk Pandan",
+        "district": "Teluk Pandan",
+        "latitude": 117.38672,
+        "longitude": 0.09674
+    },
+    {
+        "name": "SD Negeri  006 Teluk Pandan",
+        "district": "Teluk Pandan",
+        "latitude": 117.44683,
+        "longitude": 0.18604
+    },
+    {
+        "name": "KORWIL PENDIDIKAN Teluk Pandan",
+        "district": "Teluk Pandan",
+        "latitude": 117.471025,
+        "longitude": 0.229772
+    },
+    {
+        "name": "TK NEGERI Teluk Pandan",
+        "district": "Teluk Pandan",
+        "latitude": 117.49455,
+        "longitude": 0.24866
+    },
+    {
+        "name": "SD Negeri  002 Teluk Pandan",
+        "district": "Teluk Pandan",
+        "latitude": 117.48544,
+        "longitude": 0.28658
+    },
+    {
+        "name": "SMP Negeri  03 Teluk Pandan",
+        "district": "Teluk Pandan",
+        "latitude": 117.47454,
+        "longitude": 0.3135
+    }
+]

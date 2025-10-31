@@ -1,0 +1,110 @@
+[
+    {
+        "district": "Muara Ancalong",
+        "male": 7993,
+        "female": 7189,
+        "citizens": 15182
+    },
+    {
+        "district": "Muara Wahau",
+        "male": 17183,
+        "female": 15042,
+        "citizens": 32225
+    },
+    {
+        "district": "Muara Bengkal",
+        "male": 7236,
+        "female": 6600,
+        "citizens": 13836
+    },
+    {
+        "district": "Sangatta Utara",
+        "male": 68831,
+        "female": 61018,
+        "citizens": 129849
+    },
+    {
+        "district": "Sangkulirang",
+        "male": 13442,
+        "female": 11718,
+        "citizens": 25160
+    },
+    {
+        "district": "Busang",
+        "male": 3243,
+        "female": 2832,
+        "citizens": 6075
+    },
+    {
+        "district": "Telen",
+        "male": 5486,
+        "female": 4672,
+        "citizens": 10158
+    },
+    {
+        "district": "Kombeng",
+        "male": 16874,
+        "female": 15145,
+        "citizens": 32019
+    },
+    {
+        "district": "Bengalon",
+        "male": 24256,
+        "female": 20141,
+        "citizens": 44397
+    },
+    {
+        "district": "Kaliorang",
+        "male": 10539,
+        "female": 8369,
+        "citizens": 18908
+    },
+    {
+        "district": "Sandaran",
+        "male": 6291,
+        "female": 5317,
+        "citizens": 11608
+    },
+    {
+        "district": "Sangatta Selatan",
+        "male": 17099,
+        "female": 15034,
+        "citizens": 32133
+    },
+    {
+        "district": "Teluk Pandan",
+        "male": 8050,
+        "female": 6945,
+        "citizens": 14995
+    },
+    {
+        "district": "Rantau Pulung",
+        "male": 7824,
+        "female": 6962,
+        "citizens": 14786
+    },
+    {
+        "district": "Kaubun",
+        "male": 9823,
+        "female": 8070,
+        "citizens": 17893
+    },
+    {
+        "district": "Karangan",
+        "male": 7052,
+        "female": 5784,
+        "citizens": 12836
+    },
+    {
+        "district": "Batu Ampar",
+        "male": 5126,
+        "female": 4254,
+        "citizens": 9380
+    },
+    {
+        "district": "Long Mesangat",
+        "male": 3920,
+        "female": 3490,
+        "citizens": 7410
+    }
+]

@@ -7,16 +7,17 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import React from "react";
 import KutaiTimurGeoJson from "@/data/map-geojson/id6404_kutai_timur.json";
 import { ModalContext, ModalKindEnum } from "@/context-provider/modal-provider";
-import { CONFIG_SVG, NETWORK_SVG, STATISTIC_SVG } from "@/component/map-screen/svg-constant";
+import { CONFIG_SVG, NETWORK_SVG, SCHOOL_SVG, STATISTIC_SVG } from "@/component/map-screen/svg-constant";
 import { DataFlowContext, mapdataproperty } from "@/context-provider/data-flow-provider";
-import { NetworkDataSelector } from "@/helper/marker-selector";
+import { NetworkDataSelector, SekolahDataSelector } from "@/helper/marker-selector";
 
 export function BaseMapComponent() {
     const mapContainerRef = React.useRef<HTMLDivElement | null>(null);
     const mapRef = React.useRef<maplibregl.Map | null>(null);
     const { setModalKind } = React.useContext(ModalContext);
-    const { namadesaConfig, configvalueManagement } = React.useContext(DataFlowContext);
+    const { namadesaConfig, setNamadesaConfig, configvalueManagement } = React.useContext(DataFlowContext);
 
+    // initial use-effect [LOAD MAP, SETUP FILL, AND SETUP KUTAI-TIMUR OVERLAY]
     React.useEffect(() => {
         if (mapRef.current || !mapContainerRef.current) return;
 
@@ -60,16 +61,6 @@ export function BaseMapComponent() {
             });
 
             map.addLayer({
-                id: "kutai-fill",
-                type: "fill",
-                source: "kutai-timur",
-                paint: {
-                    "fill-color": "#2196F3",
-                    "fill-opacity": 0.1,
-                },
-            });
-
-            map.addLayer({
                 id: "kutai-highlight",
                 type: "fill",
                 source: "kutai-timur",
@@ -77,7 +68,17 @@ export function BaseMapComponent() {
                     "fill-color": "#2196F3",
                     "fill-opacity": 0.4,
                 },
-                filter: ["==", "village", ""],
+                filter: ["==", "district", ""],
+            });
+
+            map.addLayer({
+                id: "kutai-fill",
+                type: "fill",
+                source: "kutai-timur",
+                paint: {
+                    "fill-color": "#2196F3",
+                    "fill-opacity": 0.1,
+                },
             });
 
             map.addLayer({
@@ -92,13 +93,26 @@ export function BaseMapComponent() {
             });
         });
 
+        map.on("click", "kutai-fill", (e) => {
+            if (e.features!.length > 0) {
+                const clickedFeature = e.features![0];
+                console.log(clickedFeature.properties.district, clickedFeature.properties.village);
+                setNamadesaConfig({
+                    district: clickedFeature.properties.district,
+                    village: clickedFeature.properties.village,
+                    tobedisplayed: `${clickedFeature.properties.village}-${clickedFeature.properties.district}`
+                })
+            }
+        })
+
         return () => map.remove();
     }, []);
 
+    // selected or focused region use-effect [SET SPECIFIC REGION IN KUTAI TIMUR]
     React.useEffect(() => {
         if (!mapRef.current || !mapRef.current.getLayer("kutai-fill")) return;
         const map = mapRef.current;
-        const { district, village } = namadesaConfig;
+        const { district } = namadesaConfig;
 
         const setFilter = (id: string, filter: maplibregl.FilterSpecification | null) => {
             if (map.getLayer(id)) map.setFilter(id, filter);
@@ -122,16 +136,8 @@ export function BaseMapComponent() {
             }
         };
 
-        if (village) {
-            const filter = ["==", ["get", "village"], village] as maplibregl.FilterSpecification;
-            setFilter("kutai-highlight", filter);
-            setFilter("kutai-outline", filter);
 
-            const feature = KutaiTimurGeoJson.features.find(
-                (f: any) => f.properties?.village === village
-            );
-            if (feature) zoomToFeature(feature);
-        } else if (district) {
+        if (district) {
             const filter = ["==", ["get", "district"], district] as maplibregl.FilterSpecification;
             setFilter("kutai-highlight", filter);
             setFilter("kutai-outline", filter);
@@ -141,12 +147,13 @@ export function BaseMapComponent() {
             );
             if (feature) zoomToFeature(feature);
         } else {
-            setFilter("kutai-highlight", ["==", "village", ""] as maplibregl.FilterSpecification);
-            setFilter("kutai-outline", ["==", "village", ""] as maplibregl.FilterSpecification);
+            setFilter("kutai-highlight", ["==", "district", ""] as maplibregl.FilterSpecification);
+            setFilter("kutai-outline", ["==", "district", ""] as maplibregl.FilterSpecification);
         }
 
     }, [namadesaConfig]);
 
+    // data distribution use-effect [DATA SHOWED UP DISTRIBUTION]
     React.useEffect(() => {
         if (!mapRef.current) return;
         const map = mapRef.current;
@@ -157,7 +164,6 @@ export function BaseMapComponent() {
 
             const networkData = NetworkDataSelector(
                 namadesaConfig.district,
-                namadesaConfig.village,
                 mapdataproperty.g2
             );
 
@@ -209,7 +215,6 @@ export function BaseMapComponent() {
 
             const networkData = NetworkDataSelector(
                 namadesaConfig.district,
-                namadesaConfig.village,
                 mapdataproperty.g4
             );
 
@@ -257,11 +262,59 @@ export function BaseMapComponent() {
             });
         }
 
+        if (configvalueManagement.data.includes(mapdataproperty.sekolah)) {
+
+            const sekolahData = SekolahDataSelector(
+                namadesaConfig.district,
+            );
+
+            sekolahData.forEach((item) => {
+                const el = document.createElement("div");
+                el.style.width = "30px";
+                el.style.height = "30px";
+                el.style.borderRadius = "50%";
+                el.style.backgroundColor = "white";
+                el.style.display = "flex";
+                el.style.alignItems = "center";
+                el.style.justifyContent = "center";
+                el.style.boxShadow = "0 0 5px rgba(0,0,0,0.3)";
+                el.style.cursor = "pointer";
+                el.style.contain = "content";
+                el.innerHTML = SCHOOL_SVG;
+
+                const svg = el.querySelector("svg");
+                if (svg) {
+                    svg.style.width = "16px";
+                    svg.style.height = "16px";
+                    svg.style.fill = "blue";
+                }
+
+                const popup = new maplibregl.Popup({
+                    offset: 25,
+                    closeButton: false,
+                }).setHTML(`
+                    <div style="font-size: 14px;">
+                        <strong>${item.name}</strong><br>
+                        <span>${item.district}</span><br>
+                    </div>
+                `);
+
+                const marker = new maplibregl.Marker({
+                    element: el,
+                    anchor: "center",
+                })
+                    .setLngLat([item.latitude, item.longitude])
+                    .setPopup(popup)
+                    .addTo(map);
+
+                markers.push(marker);
+            });
+        }
+
         return () => {
             markers.forEach((marker) => marker.remove());
         };
     }, [configvalueManagement.data, namadesaConfig]);
-
 
     return (
         <div className="h-screen w-screen flex">
