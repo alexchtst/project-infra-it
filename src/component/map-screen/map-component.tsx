@@ -61,7 +61,16 @@ export function BaseMapComponent() {
             });
 
             map.addLayer({
-                id: "kutai-highlight",
+                id: "kutai-fill",
+                type: "fill",
+                source: "kutai-timur",
+                paint: {
+                    "fill-color": "#2196F3",
+                    "fill-opacity": 0.2,
+                },
+            });
+            map.addLayer({
+                id: "district-highlight",
                 type: "fill",
                 source: "kutai-timur",
                 paint: {
@@ -70,30 +79,30 @@ export function BaseMapComponent() {
                 },
                 filter: ["==", "district", ""],
             });
-
             map.addLayer({
-                id: "kutai-fill",
-                type: "fill",
-                source: "kutai-timur",
-                paint: {
-                    "fill-color": "#2196F3",
-                    "fill-opacity": 0.1,
-                },
-            });
-
-            map.addLayer({
-                id: "kutai-outline",
+                id: "village-outline",
                 type: "line",
                 source: "kutai-timur",
                 paint: {
                     "line-color": "#1976D2",
-                    "line-width": 2,
+                    "line-width": 1,
+                },
+                filter: ["==", "village", ""],
+            });
+            map.addLayer({
+                id: "village-highlight",
+                type: "fill",
+                source: "kutai-timur",
+                paint: {
+                    "fill-color": "#2196F3",
+                    "fill-opacity": 0.4,
                 },
                 filter: ["==", "village", ""],
             });
         });
 
         map.on("click", "kutai-fill", (e) => {
+            e.preventDefault()
             if (e.features!.length > 0) {
                 const clickedFeature = e.features![0];
                 console.log(clickedFeature.properties.district, clickedFeature.properties.village);
@@ -107,6 +116,7 @@ export function BaseMapComponent() {
 
         return () => map.remove();
     }, []);
+
 
     // selected or focused region use-effect [SET SPECIFIC REGION IN KUTAI TIMUR]
     React.useEffect(() => {
@@ -136,19 +146,18 @@ export function BaseMapComponent() {
             }
         };
 
-
         if (district) {
             const filter = ["==", ["get", "district"], district] as maplibregl.FilterSpecification;
-            setFilter("kutai-highlight", filter);
-            setFilter("kutai-outline", filter);
+            const unfilterKutaiKutilang = ["!=", ["get", "district"], district] as maplibregl.FilterSpecification;
+            setFilter("district-highlight", filter);
+            setFilter("kutai-fill", unfilterKutaiKutilang);
 
             const feature = KutaiTimurGeoJson.features.find(
                 (f: any) => f.properties?.district === district
             );
             if (feature) zoomToFeature(feature);
         } else {
-            setFilter("kutai-highlight", ["==", "district", ""] as maplibregl.FilterSpecification);
-            setFilter("kutai-outline", ["==", "district", ""] as maplibregl.FilterSpecification);
+            setFilter("district-highlight", ["==", "district", ""] as maplibregl.FilterSpecification);
         }
 
     }, [namadesaConfig]);

@@ -3,7 +3,7 @@
 import React from "react";
 import { ModalContext } from "@/context-provider/modal-provider";
 import { X, CheckSquare, Square } from "lucide-react";
-import SearchDesa from "../search-desa";
+import SearchDistrict from "../search-district";
 import { DataFlowContext, mapdataproperty, NamaDaereahInterface } from "@/context-provider/data-flow-provider";
 
 export default function ModalOption() {
@@ -60,7 +60,7 @@ export default function ModalOption() {
                     </p>
                 </div>
 
-                <SearchDesa name={desa} setter={setDesa} />
+                <SearchDistrict name={desa} setter={setDesa} />
 
                 <div className="grid grid-cols-3 gap-2">
                     {Object.values(mapdataproperty).map((option) => {

@@ -2,7 +2,7 @@ import { DrawerContext, DrawerEnum } from "@/context-provider/drawer-provider";
 import { ModalContext } from "@/context-provider/modal-provider";
 import { X } from "lucide-react";
 import React from "react";
-import SearchDesa from "../search-desa";
+import SearchDesa from "../search-district";
 import { DataFlowContext, NamaDaereahInterface } from "@/context-provider/data-flow-provider";
 
 export default function ModalStatistics() {

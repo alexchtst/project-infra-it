@@ -21,7 +21,7 @@ export interface FeatureProps {
     };
 }
 
-export default function SearchDesa(
+export default function SearchDistrict(
     { name, setter }: { name: NamaDaereahInterface, setter: (d: NamaDaereahInterface) => void }
 ) {
 
