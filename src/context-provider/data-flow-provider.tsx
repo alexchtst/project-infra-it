@@ -7,7 +7,6 @@ export enum mapdataproperty {
     g4 = "4G",
     g2 = "2G",
     sekolah = "sekolah",
-    penduduk = "penduduk",
     listrik = "listrik",
 }
 

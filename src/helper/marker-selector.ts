@@ -32,6 +32,7 @@ export interface DataKebutuhanListrikInterface {
   district: string;
   citizens: number;
   info: string;
+  type: number;
 }
 
 export interface DataDemografiInterface {
@@ -72,21 +73,22 @@ export function NetworkDataSelector(
 }
 
 export function KebutuhanListrikDataSelector(
-  district?: string,
+  village?: string,
 ): DataKebutuhanListrikInterface[] {
   const data =
     DataSebaranKebutuhanListrikJSON as DataKebutuhanListrikInterface[];
 
-  const filtered = district ? data.filter((item) => {
-    const matchDistrict = district ? item.district === district : true;
+  const filtered = village ? data.filter((item) => {
+    const matchDistrict = village ? item.village.toLowerCase() === village.toLowerCase() : true;
     return matchDistrict;
-  }) : data;
+  }) : [];
 
   return filtered.map((item) => ({
     village: item.village,
     district: item.district,
     citizens: item.citizens,
     info: item.info,
+    type: item.type
   }));
 }
 

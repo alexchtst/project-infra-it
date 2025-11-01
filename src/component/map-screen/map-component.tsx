@@ -9,13 +9,18 @@ import KutaiTimurGeoJson from "@/data/map-geojson/id6404_kutai_timur.json";
 import { ModalContext, ModalKindEnum } from "@/context-provider/modal-provider";
 import { CONFIG_SVG, NETWORK_SVG, SCHOOL_SVG, STATISTIC_SVG } from "@/component/map-screen/svg-constant";
 import { DataFlowContext, mapdataproperty } from "@/context-provider/data-flow-provider";
-import { NetworkDataSelector, SekolahDataSelector } from "@/helper/marker-selector";
+import { KebutuhanListrikDataSelector, NetworkDataSelector, SekolahDataSelector } from "@/helper/marker-selector";
 
 export function BaseMapComponent() {
     const mapContainerRef = React.useRef<HTMLDivElement | null>(null);
     const mapRef = React.useRef<maplibregl.Map | null>(null);
     const { setModalKind } = React.useContext(ModalContext);
     const { namadesaConfig, setNamadesaConfig, configvalueManagement } = React.useContext(DataFlowContext);
+    const [hoverProp, setHoverProp] = React.useState({
+        desa: "",
+        kecamatan: ""
+    });
+    const [villageHoverTemp, setVillageHoverTemp] = React.useState("-1")
 
     // initial use-effect [LOAD MAP, SETUP FILL, AND SETUP KUTAI-TIMUR OVERLAY]
     React.useEffect(() => {
@@ -94,8 +99,8 @@ export function BaseMapComponent() {
                 type: "fill",
                 source: "kutai-timur",
                 paint: {
-                    "fill-color": "#2196F3",
-                    "fill-opacity": 0.4,
+                    "fill-color": "#f54242",
+                    "fill-opacity": 0.5,
                 },
                 filter: ["==", "village", ""],
             });
@@ -105,7 +110,6 @@ export function BaseMapComponent() {
             e.preventDefault()
             if (e.features!.length > 0) {
                 const clickedFeature = e.features![0];
-                console.log(clickedFeature.properties.district, clickedFeature.properties.village);
                 setNamadesaConfig({
                     district: clickedFeature.properties.district,
                     village: clickedFeature.properties.village,
@@ -114,9 +118,25 @@ export function BaseMapComponent() {
             }
         })
 
+        map.on("mousemove", "district-highlight", (e) => {
+            if (e.features!.length > 0) {
+                const clickedFeature = e.features![0];
+                if (hoverProp.desa !== villageHoverTemp) {
+                    setHoverProp({
+                        desa: clickedFeature.properties.village,
+                        kecamatan: clickedFeature.properties.district,
+                    });
+                    setVillageHoverTemp(clickedFeature.properties.village);
+                }
+            }
+        })
+
+        map.on("mouseleave", "district-highlight", () => {
+            setHoverProp({ desa: "", kecamatan: "" });
+        });
+
         return () => map.remove();
     }, []);
-
 
     // selected or focused region use-effect [SET SPECIFIC REGION IN KUTAI TIMUR]
     React.useEffect(() => {
@@ -324,6 +344,77 @@ export function BaseMapComponent() {
             markers.forEach((marker) => marker.remove());
         };
     }, [configvalueManagement.data, namadesaConfig]);
+
+    React.useEffect(() => {
+        if (!mapRef.current) return;
+        const map = mapRef.current;
+        let popup: maplibregl.Popup | null = null;
+
+        if (configvalueManagement.data.includes(mapdataproperty.listrik)) {
+            const retreivedData = KebutuhanListrikDataSelector(hoverProp.desa);
+            const info = retreivedData.length !== 0 ? retreivedData[0].info : "Tidak diketahui"
+            const kec = retreivedData.length !== 0 ? retreivedData[0].district : hoverProp.kecamatan
+            const desa = retreivedData.length !== 0 ? retreivedData[0].village : hoverProp.desa
+            const jumlahpenduduk = retreivedData.length !== 0 ? retreivedData[0].citizens : "Tidak diketahui"
+            const type = retreivedData.length !== 0 ? retreivedData[0].type : -1;
+            const color = type === 0 ? "#d60202" : type === 1 ? "#14d602" : type === 2 ? "#426ff5" : "#9b9e9b";
+
+            const setFilter = (id: string, filter: maplibregl.FilterSpecification | null) => {
+                if (map.getLayer(id)) {
+                    map.setFilter(id, filter)
+                    map.setPaintProperty(id, "fill-color", color);
+                };
+            };
+            const feature = KutaiTimurGeoJson.features.find(
+                (f: any) => f.properties.village === hoverProp.desa
+            );
+
+            if (feature) {
+                const coords = feature.geometry.coordinates.flat(Infinity) as any[];
+                const nums: number[] = coords.map((c) => Number(c)).filter((n) => !Number.isNaN(n));
+                const longs: number[] = [];
+                const lats: number[] = [];
+
+                for (let i = 0; i < nums.length; i += 2) {
+                    const lng = nums[i];
+                    const lat = nums[i + 1];
+                    if (typeof lng === "number" && typeof lat === "number") {
+                        longs.push(lng);
+                        lats.push(lat);
+                    }
+                }
+
+                const centerLng = longs.length ? longs.reduce((a, b) => a + b, 0) / longs.length : 0;
+                const centerLat = lats.length ? lats.reduce((a, b) => a + b, 0) / lats.length : 0;
+
+                popup = new maplibregl.Popup({
+                    offset: 25,
+                    closeButton: false,
+                })
+                    .setLngLat([centerLng, centerLat])
+                    .setHTML(`
+                        <div style="font-size: 12px; width: fit">
+                            <span>Informasi Listrik dan Penduduk <strong>${kec}-${desa}</strong></span><br>
+                            <span>Jumlah Penduduk: <strong>${jumlahpenduduk}</strong></</span><br>
+                            <span>Informasi Ketersediaan Listrik: <strong>${info}</strong></span><br>
+                        </div>
+                    `)
+                    .addTo(map);
+            }
+
+            const filter = ["==", ["get", "village"], hoverProp.desa] as maplibregl.FilterSpecification;
+            setFilter("village-highlight", filter);
+        } else {
+            const setFilter = (id: string, filter: maplibregl.FilterSpecification | null) => {
+                if (map.getLayer(id)) map.setFilter(id, filter);
+            };
+            setFilter("village-highlight", ["==", "village", ""]);
+        }
+
+        return () => {
+            if (popup) popup.remove();
+        }
+    }, [villageHoverTemp])
 
     return (
         <div className="h-screen w-screen flex">
