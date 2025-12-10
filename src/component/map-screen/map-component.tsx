@@ -12,6 +12,8 @@ import { DataFlowContext, mapdataproperty } from "@/context-provider/data-flow-p
 import { KebutuhanListrikDataSelector, NetworkDataSelector, SekolahDataSelector } from "@/helper/marker-selector";
 
 export function BaseMapComponent() {
+    const [mapLoaded, setMapLoaded] = React.useState(false);
+
     const mapContainerRef = React.useRef<HTMLDivElement | null>(null);
     const mapRef = React.useRef<maplibregl.Map | null>(null);
     const { setModalKind } = React.useContext(ModalContext);
@@ -24,10 +26,13 @@ export function BaseMapComponent() {
 
     // initial use-effect [LOAD MAP, SETUP FILL, AND SETUP KUTAI-TIMUR OVERLAY]
     React.useEffect(() => {
-        if (mapRef.current || !mapContainerRef.current) return;
+        if (!mapRef.current && !mapContainerRef.current) {
+            console.log("map current sama map container ref udah ke load jadi skip ini semua bos")
+            return;
+        };
 
         const map = new maplibregl.Map({
-            container: mapContainerRef.current,
+            container: mapContainerRef.current ?? '',
             style: `https://api.maptiler.com/maps/satellite/style.json?key=${process.env.NEXT_PUBLIC_TOKEN_MAP}`,
             center: [117.29933710582266, 1.0127282820201768],
             zoom: 8,
@@ -39,8 +44,7 @@ export function BaseMapComponent() {
 
         const createControl = (title: string, svg: string, onClick: () => void) => {
             const el = document.createElement("div");
-            el.className =
-                "maplibregl-ctrl maplibregl-ctrl-group text-center p-[3px] cursor-pointer hover:bg-gray-300";
+            el.className = "maplibregl-ctrl maplibregl-ctrl-group text-center p-[3px] cursor-pointer hover:bg-gray-300";
             el.title = title;
             el.innerHTML = svg;
             el.onclick = onClick;
@@ -60,6 +64,9 @@ export function BaseMapComponent() {
         );
 
         map.on("load", () => {
+            // flagged that the map is already loaded
+            setMapLoaded(true);
+
             map.addSource("kutai-timur", {
                 type: "geojson",
                 data: KutaiTimurGeoJson as GeoJSON.FeatureCollection,
@@ -140,7 +147,7 @@ export function BaseMapComponent() {
 
     // selected or focused region use-effect [SET SPECIFIC REGION IN KUTAI TIMUR]
     React.useEffect(() => {
-        if (!mapRef.current || !mapRef.current.getLayer("kutai-fill")) return;
+        if (!mapLoaded || !mapRef.current || !mapRef.current.getLayer("kutai-fill")) return;
         const map = mapRef.current;
         const { district } = namadesaConfig;
 
@@ -180,7 +187,7 @@ export function BaseMapComponent() {
             setFilter("district-highlight", ["==", "district", ""] as maplibregl.FilterSpecification);
         }
 
-    }, [namadesaConfig]);
+    }, [namadesaConfig, mapLoaded]);
 
     // data distribution use-effect [DATA SHOWED UP DISTRIBUTION]
     React.useEffect(() => {
@@ -343,10 +350,10 @@ export function BaseMapComponent() {
         return () => {
             markers.forEach((marker) => marker.remove());
         };
-    }, [configvalueManagement.data, namadesaConfig]);
+    }, [configvalueManagement.data, namadesaConfig, mapLoaded]);
 
     React.useEffect(() => {
-        if (!mapRef.current) return;
+        if (!mapLoaded || !mapRef.current) return;
         const map = mapRef.current;
         let popup: maplibregl.Popup | null = null;
 
@@ -414,7 +421,7 @@ export function BaseMapComponent() {
         return () => {
             if (popup) popup.remove();
         }
-    }, [villageHoverTemp])
+    }, [villageHoverTemp, mapLoaded])
 
     return (
         <div className="h-screen w-screen flex">

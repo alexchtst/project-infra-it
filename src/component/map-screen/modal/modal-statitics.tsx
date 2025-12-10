@@ -4,6 +4,7 @@ import { X } from "lucide-react";
 import React from "react";
 import SearchDesa from "../search-district";
 import { DataFlowContext, NamaDaereahInterface } from "@/context-provider/data-flow-provider";
+import Link from "next/link";
 
 export default function ModalStatistics() {
     const { setModalKind } = React.useContext(ModalContext);
@@ -14,11 +15,6 @@ export default function ModalStatistics() {
 
     function handleClose() {
         setNamadesaStatistic(desa);
-        setModalKind(null);
-    }
-
-    function handleSave() {
-        console.log("Selected properties:");
         setModalKind(null);
     }
 
@@ -50,12 +46,11 @@ export default function ModalStatistics() {
                 <SearchDesa name={desa} setter={setDesa} />
 
                 <div className="flex gap-2">
-                    <button
-                        onClick={handleSave}
+                    <Link href={'/insight'}
                         className="text-sm px-3 py-1.5 min-w-[3vw] rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
                     >
                         Lengkap
-                    </button>
+                    </Link>
                     <button
                         onClick={handleOverview}
                         className="text-sm px-3 py-1.5 min-w-[3vw] rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-100 transition"
